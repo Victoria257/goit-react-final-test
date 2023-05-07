@@ -52,10 +52,10 @@ export const UsersList = () => {
           </div>
 
           <p className={css.tweets}>
-            <span>{tweets}</span>Tweets
+            <span>{tweets}</span> Tweets
           </p>
           <p className={css.followers}>
-            <span>{followers}</span>Followers
+            <span>{followers}</span> Followers
           </p>
           <button
             type="button"

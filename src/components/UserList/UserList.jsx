@@ -6,6 +6,8 @@ import ELlipse from "../../assets/icons/ellipse.png";
 import { useState } from "react";
 
 export const UsersList = () => {
+  const formatter = new Intl.NumberFormat("en-US");
+
   const users = useSelector((state) => state.users.users.items);
   const [nameButton, setNameButton] = useState({});
   const toggleClick = (id) => {
@@ -52,10 +54,10 @@ export const UsersList = () => {
           </div>
 
           <p className={css.tweets}>
-            <span>{tweets}</span> Tweets
+            <span>{formatter.format(tweets)}</span> Tweets
           </p>
           <p className={css.followers}>
-            <span>{followers}</span> Followers
+            <span>{formatter.format(followers)}</span> Followers
           </p>
           <button
             type="button"

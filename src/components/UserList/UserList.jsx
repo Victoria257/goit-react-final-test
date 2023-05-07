@@ -7,14 +7,13 @@ import { useState } from "react";
 
 export const UsersList = () => {
   const users = useSelector((state) => state.users.users.items);
-  const [nameButton, setNameButton] = useState(false);
+  const [nameButton, setNameButton] = useState({});
   const toggleClick = (id) => {
     setNameButton({
       ...nameButton,
       [id]: !nameButton[id],
     });
     console.log(id);
-    setNameButton(!nameButton);
   };
 
   return (
@@ -61,8 +60,9 @@ export const UsersList = () => {
           <button
             type="button"
             onClick={() => toggleClick(id)}
-            className={css.button}
-            style={{ backgroundColor: nameButton[id] ? "green" : "white" }}
+            className={`${css.button} ${
+              nameButton[id] ? css.buttonFollowing : ""
+            }`}
           >
             {nameButton[id] ? "following" : "Follow"}
           </button>
